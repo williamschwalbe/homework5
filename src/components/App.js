@@ -3,9 +3,10 @@ import React from 'react'
 import Intro from './Intro'
 import Blogs from './Blogs'
 const App = () => (
-  <div>
+  <>
+    <h1> Hi there</h1>
     <Intro/>
-    <Blogs/>
-  </div>
+    
+  </>
 )
 export default App

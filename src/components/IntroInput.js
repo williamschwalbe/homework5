@@ -1,17 +1,22 @@
-import {usesState} from 'react'
+import React from 'react'
+import {useState} from 'react'
 import { connect } from 'react-redux'
 
-import { editIntro,toggleEditIntro} from '../actions'
+import { editIntro} from '../actions'
 
-const IntroInput = ({currIntro, dispatchEditIntro, dispatchToggleEditMode}) => {
+const IntroInput = ({currIntro, dispatchEditIntro,toggleEdit}) => {
     const {text,image} = currIntro
-    const [description, setDescription] = usesState(text)
-    const [img, setImg] = usesState(image)
-    const cancelFucntion = () => {
-        dispatchToggleEditMode()
-        // might need to do something else with state of input fields
+    const [description, setDescription] = useState(text)
+    const [img, setImg] = useState(image)
+    const cancelFunction = () => {
+        toggleEdit()
         setImg(image)
         setDescription(text)
+    }
+    const submitFunction = () => {
+        dispatchEditIntro(description,img)
+        toggleEdit()
+        console.log(currIntro)
     }
     return (
         <div>
@@ -23,15 +28,14 @@ const IntroInput = ({currIntro, dispatchEditIntro, dispatchToggleEditMode}) => {
                 <label>Description</label>
                 <input className="input"  value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter Description" />
             </div>
-           <button type="submit" onClick={() => dispatchEditIntro(description,img)} className=" btn btn-success"> Submit</button>
-           <button type="submit" onClick={() => canelFunction()} className=" btn btn-info"> Cancel</button>
+           <button type="submit" onClick={() => submitFunction()} className=" btn btn-success"> Submit</button>
+           <button type="submit" onClick={() => cancelFunction()} className=" btn btn-info"> Cancel</button>
         </div>
     )
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchEditIntro: (image, text) => dispatch(editIntro(text, image)),
-  dispatchToggleEditMode: () => dispatch(toggleEditIntro())
+  dispatchEditIntro: (text,image) => dispatch(editIntro(text, image))
 })
 
 const mapStateToProps = state => ({

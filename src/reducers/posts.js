@@ -1,7 +1,7 @@
 const defaultState = []
 
 const posts = (state = defaultState, action) => {
-  const { title,description,image, id } = action
+  const {type,title,description,image, id } = action
 
   switch (type) {
     case 'ADD_POST':

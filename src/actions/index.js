@@ -7,9 +7,6 @@ export const editIntro = (text, image) => ({
   image
 })
 
-export const toggleEditIntro = () => ({
-  type: 'SWITCH_EDIT_STATE',
-})
 
 
 export const addPost = (title,description,image) => ({

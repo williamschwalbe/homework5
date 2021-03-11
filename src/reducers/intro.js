@@ -1,15 +1,15 @@
 
-const defaultState ={image:'', text:'',canEdit:false}
+const defaultState ={image:'', text:''}
 
 
 const intro = (state = defaultState, action) => {
-  const { image, text} = action
+  const { type, text, image} = action
+  console.log(`type: ${type} \n image:${image} \n text:${text}`)
 
   switch (type) {
-    case 'EDIT_POST':
-        state = {text, image}
-    case 'SWITCH_EDIT_STATE':
-        state.canEdit = !state.canEdit
+    case 'EDIT_INTRO':
+        console.log("in edit post")
+        return state = {text, image}
     default:
       return state
   }
