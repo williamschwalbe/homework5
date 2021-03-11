@@ -4,9 +4,12 @@ import Intro from './Intro'
 import Blogs from './Blogs'
 const App = () => (
   <>
-    <h1> Hi there</h1>
-    <Intro/>
-    <Blogs/>
+    <div className="py-4 mx-4">
+      <Intro />
+    </div>
+    <div className="py-4 mx-4">
+      <Blogs />
+    </div>
   </>
 )
 export default App

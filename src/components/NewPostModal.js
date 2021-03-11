@@ -18,14 +18,14 @@ const NewPostModal = ({dispatchAddPost})=>{
     setTitle('')
   }
   const submitFunction = () => {
-    dispatchAddPost(title,description,image)
+    dispatchAddPost(title, description, image) //should we reset this just call cancel after?
     handleClose()
   }
   
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+      <Button variant="warning" onClick={handleShow}>
+        Add a post
       </Button>
 
       <Modal show={show} onHide={handleClose}>

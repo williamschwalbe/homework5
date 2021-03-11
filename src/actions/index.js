@@ -1,20 +1,16 @@
 let counter = 0
 
-
 export const editIntro = (text, image) => ({
   type: 'EDIT_INTRO',
   text,
-  image
+  image,
 })
-
-
-
 export const addPost = (title,description,image) => ({
   type: 'ADD_POST',
   id: counter++,
   title,
   description,
-  image
+  image,
 })
 
 export const editPost = (title,description,image, id) => ({
@@ -22,11 +18,11 @@ export const editPost = (title,description,image, id) => ({
   id,
   title,
   description,
-  image
+  image,
 })
 
 
 export const deletePost = id => ({
   type: 'DELETE_POST',
-  id
+  id,
 })
