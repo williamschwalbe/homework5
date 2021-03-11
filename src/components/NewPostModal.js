@@ -21,7 +21,7 @@ const NewPostModal = ({dispatchAddPost})=>{
     dispatchAddPost(title,description,image)
     handleClose()
   }
-
+  
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -33,18 +33,20 @@ const NewPostModal = ({dispatchAddPost})=>{
           <Modal.Title>New Post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <form>
+          <div className="form-group ">
+            <label>Image</label> <br></br>
+            <input className="input"  value={image} onChange={e => setImage(e.target.value)} placeholder="Enter Image Url" />
+          </div>
           <div className="form-group">
-              <label>Image</label>
-              <input className="input"  value={image} onChange={e => setImage(e.target.value)} placeholder="Enter Image Url" />
-            </div>
-            <div className="form-group">
-              <label>Title</label>
-              <input className="input"  value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter Title" />
-            </div>
-            <div className="form-group">
-              <label>Description</label>
-              <input className="input"  value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter Description" />
-            </div>
+            <label>Title</label><br></br>
+            <input className="input"  value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter Title" />
+          </div>
+          <div className="form-group">
+            <label>Description</label><br></br>
+            <input className="input"  value={description} onChange={e => setDescription(e.target.value)} placeholder="Enter Description" />
+          </div>
+        </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={()=>cancelFunction()}>

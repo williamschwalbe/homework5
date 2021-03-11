@@ -1,13 +1,20 @@
 import React from 'react'
 import NewPostModal from './NewPostModal'
-
-const Blogs = () =>{
+import {connect} from 'react-redux'
+import BlogPost from './BlogPost'
+const Blogs = ({postList}) =>{
+  let counter = 0
     return(
         <>
           <h1> THIS IS MY BLOG</h1> <br></br> 
           <NewPostModal/>
-
+          {postList.map(post => <BlogPost key={counter++} postInfo={post}/>)}
         </>
     )
 }
-export default Blogs
+const mapStateToProps = state => ({
+  postList: state.posts
+})
+
+export default connect(mapStateToProps)(Blogs)
+
