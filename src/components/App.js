@@ -6,7 +6,7 @@ const App = () => (
   <>
     <h1> Hi there</h1>
     <Intro/>
-    
+    <Blogs/>
   </>
 )
 export default App

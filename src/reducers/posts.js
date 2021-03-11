@@ -1,5 +1,4 @@
 const defaultState = []
-
 const posts = (state = defaultState, action) => {
   const {type,title,description,image, id } = action
 
