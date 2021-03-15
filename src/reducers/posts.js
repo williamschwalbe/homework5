@@ -5,12 +5,12 @@ const posts = (state = defaultState, action) => {
   switch (type) {
     case 'ADD_POST':
       return [
-        ...state, { id, title, description, image }
+        ...state, {title, description, image, id}
       ]
     case 'DELETE_POST':
       return state.filter(post => post.id !== id)
     case 'EDIT_POST':
-        state.map(post =>{
+        state.map(post => {
             if(post.id === id){
                 post = {title, description, image, id}
             }

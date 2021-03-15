@@ -1,14 +1,17 @@
-import React from 'react'
-import {useState} from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import { editPost,deletePost} from '../actions'
+import { editPost, deletePost } from '../actions'
 
-const IntroInput = ({postInfo, changeEditMode, dispatchDeletePost, dispatchEditPost}) => {
-  const {title, description, image, id} = postInfo
-  const [ttl,setTitle] = useState(title)
-  const [img,setImg] = useState(image)
-  const [desc,setDescription] = useState(description)
+const EditBlogPost = ({
+  postInfo, changeEditMode, dispatchDeletePost, dispatchEditPost,
+}) => {
+  const {
+    title, description, image, id,
+  } = postInfo
+  const [ttl, setTitle] = useState(title)
+  const [img, setImg] = useState(image)
+  const [desc, setDescription] = useState(description)
   const cancelFunction = () => {
     changeEditMode()
     setImg(image)
@@ -38,18 +41,19 @@ const IntroInput = ({postInfo, changeEditMode, dispatchDeletePost, dispatchEditP
           <button type="submit" onClick={() => submitFunction()} className=" btn btn-success"> Submit</button>
           <button type="submit" onClick={() => cancelFunction()} className=" btn btn-info"> Cancel</button>
         </div>
-        <button type="button" className="btn btn-danger" style={{ margin: '1rem' }} onClick={() => dispatchDeletePost(id)}> DELETE POST </button> 
+        <button type="button" className="btn btn-danger" style={{ margin: '1rem' }} onClick={() => dispatchDeletePost(id)}> DELETE POST </button>
       </div>
     </div>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchEditPost: (title,description,image, id) => dispatch(editPost(title,description,image, id)),
-  dispatchDeletePost: id => dispatch(deletePost(id)) 
+  dispatchEditPost:
+  (title, description, image, id) => dispatch(editPost(title, description, image, id)),
+  dispatchDeletePost: id => dispatch(deletePost(id)),
 })
 
 const mapStateToProps = state => ({
   postList: state.posts,
 })
-export default connect(mapStateToProps, mapDispatchToProps)(IntroInput)
+export default connect(mapStateToProps, mapDispatchToProps)(EditBlogPost)

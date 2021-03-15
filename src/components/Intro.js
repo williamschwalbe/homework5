@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import IntroInput from './IntroInput'
 import { connect } from 'react-redux'
+import IntroInput from './IntroInput'
 
 const Intro = ({ currIntro }) => {
   const { text, image } = currIntro
@@ -15,9 +15,14 @@ const Intro = ({ currIntro }) => {
           <button type="submit" onClick={() => setCanEdit(!canEdit)} className=" btn btn-info"> Edit</button>
         </div>
       </div>
-      {canEdit && <IntroInput toggleEdit={() => setCanEdit(!canEdit)} />}
-      {!canEdit && <img src={image} alt="" />}
-      {!canEdit && <h1>{text}</h1>}
+      <div className="d-flex justify-content-center">
+        {canEdit && <IntroInput toggleEdit={() => setCanEdit(!canEdit)} />}
+        <div />
+        <div className="d-flex justify-content-center my-4">
+          {!canEdit && <img src={image} alt="" className="mx-3" />}
+          {!canEdit && <h1>{text}</h1>}
+        </div>
+      </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import NewPostModal from './NewPostModal'
 import BlogPost from './BlogPost'
 
 const Blogs = ({ postList }) => {
-  let counter = 0
+  let counter = 1
   return (
     <div className="container">
       <div className="row">
@@ -12,11 +12,11 @@ const Blogs = ({ postList }) => {
           <h1> THIS IS MY BLOG</h1>
         </div>
         <div className="col-4">
-          <NewPostModal className="float-right"/>
+          <NewPostModal className="float-right" />
         </div>
       </div>
       <div className="row">
-        {postList.map(post => <BlogPost key={counter++} postInfo={post}/>)}
+        {postList.map(post => <BlogPost key={counter++} postInfo={post} />)}
 
       </div>
     </div>
@@ -27,4 +27,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(Blogs)
-
