@@ -33,7 +33,7 @@ const NewPostModal = ({ dispatchAddPost }) => {
         <Modal.Body>
           <form>
             <div className="form-group ">
-              <label>Image</label> 
+              <label>Image</label>
               <br />
               <input className="input" value={image} onChange={e => setImage(e.target.value)} placeholder="Enter Image Url" />
             </div>

@@ -16,7 +16,7 @@ const Blogs = ({ postList }) => {
         </div>
       </div>
       <div className="row">
-        {postList.map(post => <BlogPost key={counter++} postInfo={post} />)}
+        {postList.map(post => <BlogPost key={counter} postNumber={counter++} postInfo={post} />)}
 
       </div>
     </div>
