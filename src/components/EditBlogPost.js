@@ -19,8 +19,8 @@ const EditBlogPost = ({
     setTitle(title)
   }
   const submitFunction = () => {
-    changeEditMode()
     dispatchEditPost(ttl, desc, img, id)
+    changeEditMode()
   }
   return (
     <div className="card">
